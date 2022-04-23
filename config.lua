@@ -16,14 +16,57 @@ ConsumeablesEat = {
     ["tosti"] = math.random(40, 50),
     ["twerks_candy"] = math.random(35, 54),
     ["snikkel_candy"] = math.random(40, 50),
+    ["burger-bleeder"] = math.random(35, 54),
+["burger-moneyshot"] = math.random(35, 54),
+["burger-torpedo"] = math.random(35, 54),
+["burger-heartstopper"] = math.random(35, 54),
+["burger-meatfree"] = math.random(35, 54),
+["burger-fries"] = math.random(35, 54),
+["apple"] = math.random(10, 20),
+["beef"] = math.random(35, 50),
+["slicedpie"] = math.random(10, 20),
+["corncob"] = math.random(25, 40),
+["canofcorn"] = math.random(35, 50),
+["grapes"] = math.random(10, 20),
+["greenpepper"] = math.random(10, 20),
+["chillypepper"] = math.random(10, 20),
+["tomato"] = math.random(10, 20),
+["tomatopaste"] = math.random(25, 40),
+["cooked_bacon"] = math.random(35, 50),
+["cooked_sausage"] = math.random(35, 50),
+["cooked_pork"] = math.random(35, 50),
+["cooked_ham"] = math.random(35, 50),
 }
+
 
 ConsumeablesDrink = {
     ["water_bottle"] = math.random(35, 54),
     ["kurkakola"] = math.random(35, 54),
     ["coffee"] = math.random(40, 50),
-}
+    ["burger-softdrink"] = math.random(40, 50),
+["burger-mshake"] = math.random(40, 50),
 
+["apple_juice"] = math.random(25, 45),
+["grapejuice"] = math.random(25, 45),
+["hotsauce"] = math.random(10, 15),
+}
+Consumeables = {
+
+--Food 
+
+["burger-bleeder"] = math.random(35, 54),
+["burger-moneyshot"] = math.random(35, 54),
+["burger-torpedo"] = math.random(35, 54),
+["burger-heartstopper"] = math.random(35, 54),
+["burger-meatfree"] = math.random(35, 54),
+["burger-fries"] = math.random(35, 54),
+
+
+--Drinks
+["burger-softdrink"] = math.random(40, 50),
+["burger-mshake"] = math.random(40, 50),
+
+} 
 ConsumeablesAlcohol = {
     ["whiskey"] = math.random(20, 30),
     ["beer"] = math.random(30, 40),
