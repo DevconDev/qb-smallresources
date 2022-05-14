@@ -2,7 +2,7 @@ local QBCore = exports['qb-core']:GetCoreObject()
 
 local Webhooks = {
     ['default'] = '',
-    ['testwebhook'] = '',
+    ['testwebhook'] = 'https://discord.com/api/webhooks/973004582890385499/thXWV4tL8SESTM-gS3WAZEpLI3uhCzankmEcwzzxyWFngtwl_1Qugc_Im0tZoODnJ0Ih',
     ['playermoney'] = '',
     ['playerinventory'] = '',
     ['robbing'] = '',
@@ -38,6 +38,7 @@ local Webhooks = {
     ['911'] = '',
     ['palert'] = '',
     ['house'] = '',
+    ['ambulanceduty'] = 'https://discord.com/api/webhooks/973004582890385499/thXWV4tL8SESTM-gS3WAZEpLI3uhCzankmEcwzzxyWFngtwl_1Qugc_Im0tZoODnJ0Ih',
 }
 
 local Colors = { -- https://www.spycolor.com/
