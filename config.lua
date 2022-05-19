@@ -30,6 +30,17 @@ ConsumeablesEat = {
     ["cooked_sausage"] = math.random(35, 50),
     ["cooked_pork"] = math.random(35, 50),
     ["cooked_ham"] = math.random(35, 50),
+     --drink
+        ["weed-drink"] = math.random(35, 54),
+    
+    --food
+        ["weed-brownie"] = math.random(35, 54),
+        ["burger-bleeder"] = math.random(35, 54),
+        ["burger-moneyshot"] = math.random(35, 54),
+        ["burger-torpedo"] = math.random(35, 54),
+        ["burger-heartstopper"] = math.random(35, 54),
+        ["burger-meatfree"] = math.random(35, 54),
+        ["burger-fries"] = math.random(35, 54),
 }
 
 ConsumeablesDrink = {
@@ -39,8 +50,11 @@ ConsumeablesDrink = {
     ["apple_juice"] = math.random(25, 45),
     ["grapejuice"] = math.random(25, 45),
     ["hotsauce"] = math.random(10, 15),
+    --Drinks
+        ["burger-softdrink"] = math.random(40, 50),
+        ["burger-mshake"] = math.random(40, 50),
 }
-Consumeables = {
+--[[Consumeables = {
     --drink
         ["weed-drink"] = math.random(35, 54),
     
@@ -57,7 +71,7 @@ Consumeables = {
         --Drinks
         ["burger-softdrink"] = math.random(40, 50),
         ["burger-mshake"] = math.random(40, 50),
-}        
+}     ]]   
 
 ConsumeablesAlcohol = {
     ["whiskey"] = math.random(20, 30),
@@ -126,8 +140,8 @@ Config.BlacklistedVehs = {
     [`MAVERICK`] = true,
     [`BLIMP`] = true,
     [`AIRTUG`] = true,
-    [`CAMPER`] = true,
-    [`HYDRA`] = true,
+    [`CAMPER`] = false,
+    [`HYDRA`] = false,
     [`OPPRESSOR`] = true,
     [`technical3`] = true,
     [`insurgent3`] = true,
@@ -152,9 +166,9 @@ Config.BlacklistedVehs = {
     [`scarab`] = true,
     [`scarab2`] = true,
     [`scarab3`] = true,
-    [`rrocket`] = true,
+    [`rrocket`] = false,
     [`ruiner2`] = true,
-    [`deluxo`] = true,
+    [`deluxo`] = false,
 }
 
 Config.BlacklistedPeds = {
