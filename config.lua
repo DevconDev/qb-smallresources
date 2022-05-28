@@ -141,7 +141,7 @@ Config.BlacklistedVehs = {
     [`BLIMP`] = true,
     [`AIRTUG`] = true,
     [`CAMPER`] = false,
-    [`HYDRA`] = false,
+    [`HYDRA`] = true,
     [`OPPRESSOR`] = true,
     [`technical3`] = true,
     [`insurgent3`] = true,
@@ -166,7 +166,7 @@ Config.BlacklistedVehs = {
     [`scarab`] = true,
     [`scarab2`] = true,
     [`scarab3`] = true,
-    [`rrocket`] = false,
+    [`rrocket`] = true,
     [`ruiner2`] = true,
     [`deluxo`] = false,
 }
