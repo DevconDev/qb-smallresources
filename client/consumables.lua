@@ -450,7 +450,7 @@ RegisterNetEvent('consumables:client:slushy', function(itemName)
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumeablesSlushy[itemName])
         TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
-        AddArmor(3)
+        
     end)
 end)
 
