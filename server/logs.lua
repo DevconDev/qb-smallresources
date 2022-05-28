@@ -39,7 +39,7 @@ local Webhooks = {
     ['911e'] = 'https://discord.com/api/webhooks/973004582890385499/thXWV4tL8SESTM-gS3WAZEpLI3uhCzankmEcwzzxyWFngtwl_1Qugc_Im0tZoODnJ0Ih',
     ['palert'] = '',
     ['house'] = '',
-    ['ambulanceduty'] = 'https://discord.com/api/webhooks/973004582890385499/thXWV4tL8SESTM-gS3WAZEpLI3uhCzankmEcwzzxyWFngtwl_1Qugc_Im0tZoODnJ0Ih',
+    ['shiftlogAmbulance'] = 'https://discord.com/api/webhooks/973004582890385499/thXWV4tL8SESTM-gS3WAZEpLI3uhCzankmEcwzzxyWFngtwl_1Qugc_Im0tZoODnJ0Ih',
 }
 
 local Colors = { -- https://www.spycolor.com/
