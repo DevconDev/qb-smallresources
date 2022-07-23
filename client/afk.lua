@@ -1,6 +1,6 @@
 -- AFK Kick Time Limit (in seconds)
 local group = 'user'
-local secondsUntilKick = 1800
+local secondsUntilKick = 2500
 local QBCore = exports['qb-core']:GetCoreObject()
 local prevPos, time = nil, nil
 
