@@ -154,7 +154,6 @@ RegisterNetEvent('consumables:client:Eat', function(itemName)
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
         TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
-        
         TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
     end)
 end)
