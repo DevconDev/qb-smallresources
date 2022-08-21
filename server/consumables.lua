@@ -491,6 +491,7 @@ RegisterNetEvent('consumables:server:addThirst', function(amount)
     if not Player then return end
 
     Player.Functions.SetMetaData('thirst', amount)
+    TriggerClientEvent('hud:client:UpdateNeeds', source, Player.PlayerData.metadata.hunger, amount)
 end)
 
 RegisterNetEvent('consumables:server:addHunger', function(amount)
@@ -499,4 +500,5 @@ RegisterNetEvent('consumables:server:addHunger', function(amount)
     if not Player then return end
 
     Player.Functions.SetMetaData('hunger', amount)
+    TriggerClientEvent('hud:client:UpdateNeeds', source, amount, Player.PlayerData.metadata.thirst)
 end)
