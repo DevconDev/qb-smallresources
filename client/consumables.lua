@@ -182,9 +182,10 @@ RegisterNetEvent('consumables:client:DrinkAlcohol', function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
-        TriggerServerEvent("QBCore:Server:RemoveItem", itemName, 1)
-        TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumeablesAlcohol[itemName])
-        alcoholCount = alcoholCount + 1
+        TriggerServerEvent("consumables:server:drinkAlcohol", itemName)
+        TriggerServerEvent("consumables:server:addThirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumablesAlcohol[itemName])
+        TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
+        alcoholCount += 1
         if alcoholCount > 1 and alcoholCount < 4 then
             TriggerEvent("evidence:client:SetStatus", "alcohol", 200)
         elseif alcoholCount >= 4 then
