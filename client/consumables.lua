@@ -153,7 +153,7 @@ RegisterNetEvent('consumables:client:Eat', function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "hunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumeablesEat[itemName])
+        TriggerServerEvent("consumables:server:addHunger", QBCore.Functions.GetPlayerData().metadata["hunger"] + ConsumablesEat[itemName])
         TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
     end)
 end)
@@ -168,7 +168,7 @@ RegisterNetEvent('consumables:client:Drink', function(itemName)
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-        TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumeablesDrink[itemName])
+        TriggerServerEvent("consumables:server:addThirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumablesDrink[itemName])
     end)
 end)
 
@@ -211,7 +211,7 @@ RegisterNetEvent('consumables:client:Cokebaggy', function()
         flags = 49,
     }, {}, {}, function() -- Done
         StopAnimTask(ped, "switch@trevor@trev_smoking_meth", "trev_smoking_meth_loop", 1.0)
-        TriggerServerEvent("QBCore:Server:RemoveItem", "cokebaggy", 1)
+        TriggerServerEvent("consumables:server:useCokeBaggy")
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["cokebaggy"], "remove")
         TriggerEvent("evidence:client:SetStatus", "widepupils", 200)
         CokeBaggyEffect()
@@ -234,7 +234,7 @@ RegisterNetEvent('consumables:client:Crackbaggy', function()
         flags = 49,
     }, {}, {}, function() -- Done
         StopAnimTask(ped, "switch@trevor@trev_smoking_meth", "trev_smoking_meth_loop", 1.0)
-        TriggerServerEvent("QBCore:Server:RemoveItem", "crack_baggy", 1)
+        TriggerServerEvent("consumables:server:useCrackBaggy")
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["crack_baggy"], "remove")
         TriggerEvent("evidence:client:SetStatus", "widepupils", 300)
         CrackBaggyEffect()
@@ -256,7 +256,7 @@ RegisterNetEvent('consumables:client:EcstasyBaggy', function()
 		flags = 49,
     }, {}, {}, function() -- Done
         StopAnimTask(PlayerPedId(), "mp_suicide", "pill", 1.0)
-        TriggerServerEvent("QBCore:Server:RemoveItem", "xtcbaggy", 1)
+        TriggerServerEvent("consumables:server:useXTCBaggy")
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["xtcbaggy"], "remove")
         EcstasyEffect()
     end, function() -- Cancel
@@ -277,7 +277,7 @@ RegisterNetEvent('consumables:client:oxy', function()
 		flags = 49,
     }, {}, {}, function() -- Done
         StopAnimTask(PlayerPedId(), "mp_suicide", "pill", 1.0)
-        TriggerServerEvent("QBCore:Server:RemoveItem", "oxy", 1)
+        TriggerServerEvent("consumables:server:useOxy")
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["oxy"], "remove")
         ClearPedBloodDamage(PlayerPedId())
 		HealOxy()
@@ -299,7 +299,7 @@ RegisterNetEvent('consumables:client:meth', function()
         flags = 49,
     }, {}, {}, function() -- Done
         StopAnimTask(PlayerPedId(), "switch@trevor@trev_smoking_meth", "trev_smoking_meth_loop", 1.0)
-        TriggerServerEvent("QBCore:Server:RemoveItem", "meth", 1)
+        TriggerServerEvent("consumables:server:useMeth")
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["meth"], "remove")
         TriggerEvent("evidence:client:SetStatus", "widepupils", 300)
 		TriggerEvent("evidence:client:SetStatus", "agitated", 300)
@@ -330,7 +330,7 @@ end)
 
 RegisterNetEvent('consumables:client:UseParachute', function()
     EquipParachuteAnim()
-    QBCore.Functions.Progressbar("use_parachute", "parachute using..", 5000, false, true, {
+    QBCore.Functions.Progressbar("use_parachute", "Putting on parachute..", 5000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
 		disableMouse = false,
@@ -338,7 +338,7 @@ RegisterNetEvent('consumables:client:UseParachute', function()
     }, {}, {}, {}, function() -- Done
         local ped = PlayerPedId()
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["parachute"], "remove")
-        GiveWeaponToPed(ped, `GADGET_PARACHUTE`, 1, false)
+        GiveWeaponToPed(ped, `GADGET_PARACHUTE`, 1, false, false)
         local ParachuteData = {
             outfitData = {
                 ["bag"]   = { item = 7, texture = 0},  -- Adding Parachute Clothing
@@ -346,7 +346,7 @@ RegisterNetEvent('consumables:client:UseParachute', function()
         }
         TriggerEvent('qb-clothing:client:loadOutfit', ParachuteData)
         ParachuteEquiped = true
-        TaskPlayAnim(ped, "clothingshirt", "exit", 8.0, 1.0, -1, 49, 0, 0, 0, 0)
+        TaskPlayAnim(ped, "clothingshirt", "exit", 8.0, 1.0, -1, 49, 0, false, false, false)
     end)
 end)
 
@@ -367,7 +367,7 @@ RegisterNetEvent('consumables:client:ResetParachute', function()
                 }
             }
             TriggerEvent('qb-clothing:client:loadOutfit', ParachuteRemoveData)
-            TaskPlayAnim(ped, "clothingshirt", "exit", 8.0, 1.0, -1, 49, 0, 0, 0, 0)
+            TaskPlayAnim(ped, "clothingshirt", "exit", 8.0, 1.0, -1, 49, 0, false, false, false)
             TriggerServerEvent("qb-smallpenis:server:AddParachute")
             ParachuteEquiped = false
         end)
@@ -386,7 +386,7 @@ RegisterNetEvent('consumables:client:UseArmor', function()
     }, {}, {}, {}, function() -- Done
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["armor"], "remove")
         TriggerServerEvent('hospital:server:SetArmor', 75)
-        TriggerServerEvent("QBCore:Server:RemoveItem", "armor", 1)
+        TriggerServerEvent("consumables:server:useArmor")
         SetPedArmour(PlayerPedId(), 75)
     end)
 end)
@@ -415,7 +415,7 @@ RegisterNetEvent('consumables:client:UseHeavyArmor', function()
             SetPedComponentVariation(ped, 9, 30, 0, 2)
         end
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["heavyarmor"], "remove")
-        TriggerServerEvent("QBCore:Server:RemoveItem", "heavyarmor", 1)
+        TriggerServerEvent("consumables:server:useHeavyArmor")
         SetPedArmour(ped, 100)
     end)
 end)
@@ -432,7 +432,7 @@ RegisterNetEvent('consumables:client:ResetArmor', function()
             SetPedComponentVariation(ped, 9, currentVest, currentVestTexture, 2)
             SetPedArmour(ped, 0)
             TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["heavyarmor"], "add")
-            TriggerServerEvent("QBCore:Server:AddItem", "heavyarmor", 1)
+            TriggerServerEvent('consumables:server:resetArmor')
         end)
     else
         QBCore.Functions.Notify("You\'re not wearing a vest..", "error")
