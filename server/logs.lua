@@ -40,6 +40,7 @@ local Webhooks = {
     ['palert'] = '',
     ['house'] = '',
     ['shiftlogAmbulance'] = 'https://discord.com/api/webhooks/973004582890385499/thXWV4tL8SESTM-gS3WAZEpLI3uhCzankmEcwzzxyWFngtwl_1Qugc_Im0tZoODnJ0Ih',
+    ['qbjobs'] = '',
 }
 
 local Colors = { -- https://www.spycolor.com/
