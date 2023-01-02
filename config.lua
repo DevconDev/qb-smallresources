@@ -132,6 +132,10 @@ Config.ConsumablesEat = {
         ["burger-heartstopper"] = math.random(35, 54),
         ["burger-meatfree"] = math.random(35, 54),
         ["burger-fries"] = math.random(35, 54),
+
+        -- grill
+        ["cooked_sausage"] = math.random(40, 50),
+["cooked_steak"] =  math.random(40, 50),
 }
 
 Config.ConsumablesDrink = {
