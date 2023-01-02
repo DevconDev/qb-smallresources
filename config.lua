@@ -255,6 +255,7 @@ ConsumeablesEatGumBall = {
 }
 
 Config.BlacklistedVehs = {
+    ['AMBULANCE'] = true,
    ['SHAMAL'] = true,
 ['JET'] = true,
 ['LAZER'] = true,
